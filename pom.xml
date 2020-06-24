@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cc.airson.common</groupId>
+    <artifactId>common-server</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>common-server</name>
+    <packaging>jar</packaging>
+    <description>Demo project for Spring Boot</description>
+    <url>http://www.airson.cc</url>
+
+    <properties>
+        <common.encoding>UTF-8</common.encoding>
+        <java.version>14</java.version>
+        <skipTests>true</skipTests>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <mysql-connector.version>8.0.17</mysql-connector.version>
+        <fastjson.version>1.2.62</fastjson.version>
+        <druid.version>1.1.21</druid.version>
+        <swagger.version>2.9.2</swagger.version>
+        <commons-codec.version>1.13</commons-codec.version>
+        <commons-lang3.version>3.6</commons-lang3.version>
+        <httpclient.version>4.5.12</httpclient.version>
+        <!-- plugins -->
+        <compiler.version>3.6.2</compiler.version>
+        <compiler-source.version>1.8</compiler-source.version>
+        <compiler-target.version>1.8</compiler-target.version>
+        <jar.version>3.0.2</jar.version>
+        <install.version>2.5.2</install.version>
+        <grunt-maven.version>1.5.1</grunt-maven.version>
+        <antrun.version>1.8</antrun.version>
+        <war.version>3.1.0</war.version>
+        <resources.version>3.0.2</resources.version>
+        <surefire.version>2.20</surefire.version>
+        <jetty7.version>7.6.14.v20131031</jetty7.version>
+        <jetty9.version>9.4.5.v20170502</jetty9.version><!-- 9.4.6.v20170531 : start异常 -->
+    </properties>
+
+    <dependencies>
+
+        <!-- https://dev.mysql.com/downloads/connector/j/ -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-core -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-core</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>-->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- org.apache.maven.plugins : http://maven.apache.org/plugins/ -->
+            <!-- compiler插件, 设定JDK版本 : http://maven.apache.org/plugins/maven-compiler-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.version}</version>
+                <configuration>
+                    <source>${compiler-source.version}</source>
+                    <target>${compiler-target.version}</target>
+                    <encoding>UTF-8</encoding>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <!-- jar包插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${jar.version}</version>
+            </plugin>
+
+            <!-- install插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${install.version}</version>
+            </plugin>
+
+            <!-- 读取外部properties文件 -->
+            <!-- <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                <execution>
+                <phase>compile</phase>
+                <goals>
+                <goal>read-project-properties</goal>
+                </goals>
+                <configuration>
+                <files>
+                <file>src/main/resources/pomShare.properties</file>
+                </files>
+                </configuration>
+                </execution>
+                </executions>
+                </plugin> -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${resources.version}</version>
+                <configuration>
+                    <encoding>${common.encoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>10</threadCount>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty9.version}</version>
+                <!-- <dependencies>
+                    <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-io</artifactId>
+                    <version>9.4.5.v20170502</version>
+                    </dependency>
+                    </dependencies> -->
+                <configuration>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>spring.profiles.active</name>
+                            <value>development</value>
+                        </systemProperty>
+                    </systemProperties>
+                    <useTestClasspath>true</useTestClasspath>
+                    <jettyXml>z_jetty/jetty.xml,z_jetty/jetty-ssl-context.xml,z_jetty/jetty-ssl.xml,z_jetty/jetty-https.xml</jettyXml>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <stopKey>stop</stopKey>
+                    <stopPort>8899</stopPort>
+                    <webApp>
+                        <contextPath>/${project.artifactId}</contextPath>
+                    </webApp>
+                    <httpConnector>
+                        <port>8888</port>
+                        <idleTimeout>36000</idleTimeout>
+                    </httpConnector>
+                    <loginServices>
+                        <loginService implementation="org.eclipse.jetty.security.HashLoginService">
+                            <name>Client Cert Users-only Area</name>
+                        </loginService>
+                    </loginServices>
+                </configuration>
+            </plugin>
+
+        </plugins>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+
+</project>

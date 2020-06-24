@@ -1,0 +1,56 @@
+# https://mp.weixin.qq.com/s/nKLFOUmdiCeW5VdfpO96BA
+# https://github.com/Snailclimb/awesome-java
+# https://github.com/wildfirechat/server
+
+优先开发的功能：
+
+
+比较通用的功能：
+
+OAuth认证
+微信开放接口
+收发邮件
+定时任务
+权限管理
+服务器reqeuest, response的功能封装
+计划任务
+系统监控
+消息通知
+流程表单，协同
+用户/部门/群组/数据字典/菜单、日志、
+支付
+excel导入导出
+二维码生成与解析
+HTTP请求封装
+数据同步
+代码自动生成（PO, mapper, xml）
+多数据源,数据源自动路由，主从分离
+swagger,redis,kafka,rabbitmq,spring cloud,docker,k8s,
+单元测试，性能测试
+
+
+整体功能：
+IM、客服系统、消息通知
+待办任务（TO-DO, 备忘录，工作计划）
+会议管理
+资产管理
+系统管理（用户/部门/群组/数据字典/菜单、日志、）
+系统监控
+CRM客户管理，签单管理
+文档管理
+工作任务
+
+
+
+
+系统设计：
+模块之间基于事件通知交互，降低耦合度
+大的模块可以方便的启用停用，最好是直接加入对应的jar包就可使用
+需要使用微服务,redis等等新技术
+
+
+关注点：
+基于事件进行模块间交互
+REST接口设计（通用返回码，返回格式，接口名格式等）
+Restful Api写法心得之三《返回值篇》
+
