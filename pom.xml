@@ -21,7 +21,7 @@
         <swagger.version>2.9.2</swagger.version>
         <commons-codec.version>1.13</commons-codec.version>
         <commons-lang3.version>3.6</commons-lang3.version>
-        <httpclient.version>4.5.12</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <!-- plugins -->
         <compiler.version>3.6.2</compiler.version>
         <compiler-source.version>1.8</compiler-source.version>
